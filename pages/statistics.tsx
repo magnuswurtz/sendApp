@@ -1,7 +1,7 @@
 import Button from "../components/Button"
 import StatsNav from "../components/StatsNav"
 import { useState } from "react"
-import StatsList from "./StatsList"
+import StatsList from "../components/StatsList"
 
 const Statistics = () => {
     const [content,setContent] = useState("List");
