@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
+import { useRouter } from 'next/router'
 import {
     Formik,
     FormikHelpers,
@@ -12,6 +13,7 @@ import {
   } from 'formik';
 
 interface formValues {
+    climber?:string;
     date:Date;
     routeName:string;
     section:string;
@@ -22,15 +24,18 @@ interface formValues {
 }
 
 const AddForm = () => {
+  const router = useRouter()
+
     return (
-            <Formik initialValues={{date:new Date(),routeName:"",section:"",area:"",country:"",grade:"5A",comments:""}} onSubmit={(
+            <Formik initialValues={{date:new Date(),routeName:"",section:"",area:"",country:"",grade:"5A",comments:""}} onSubmit={async (
                 values: formValues,
                 { setSubmitting }: FormikHelpers<formValues>
               ) => {
-                setTimeout(() => {
-                    console.log(values)
-                  setSubmitting(false);
-                }, 500);
+                const response = await fetch("api/add",{method:'POST',headers: {'Content-Type': 'application/json;charset=utf-8'},body:JSON.stringify({climber:"CLIMBERNAME",...values})})
+                console.log(response.text());
+                setSubmitting(false);
+                
+                router.push("/statistics"); //redirect to statistics page
               }}>
                   {({ isSubmitting, values, setFieldValue }) => (
                 <Form className="items-start m-3 flex flex-col border max-w-sm">
