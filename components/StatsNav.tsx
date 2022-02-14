@@ -10,8 +10,8 @@ const StatsNav = (props:navProps) => {
     'Map',
     'Plots',
     
-  ].map((title) => (
-    <button className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900" onClick={() => props.setContent(title)}>{title}</button>
+  ].map((title,idx) => (
+    <button className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900" key={idx} onClick={() => props.setContent(title)}>{title}</button>
   ))}
 </nav>
     )

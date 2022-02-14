@@ -1,6 +1,33 @@
-const StatsPlots = () => {
+import { useState } from "react";
+import { Pie, PieChart } from "recharts";
+import { Route } from "../shared";
+
+type StatsProps = {
+    routes:Route[];
+} 
+
+const StatsPlots = (props:StatsProps) => {
+    const [total,setTotal] = useState();
+    const [gradeCount,setGradeCount] = useState();
+    
+    const countBy = (list:Route[]) =>{
+        const count = list.reduce((accumulator, route) => {
+            if(!accumulator[route.Grade]) accumulator[route.Grade] = 1;
+            else accumulator[route.Grade]++; 
+            return accumulator},{} as any)
+
+        const out = []
+        for (const [key, value] of Object.entries(count))
+            out.push({"grade":key,"number":value})
+        
+        return out;
+    }
     return(
-        <div>StatsPlots component</div>
+        <div>
+            <PieChart width={730} height={250}>
+                <Pie data={countBy(props.routes)} dataKey="number" nameKey="grade" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label />
+            </PieChart>
+        </div>
     )
 }
 
