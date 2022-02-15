@@ -3,12 +3,13 @@ export type Route = {
     Name:string;
     Grade: string;
     Type: string;
-    Height: number | null;
+    Height: number;
     Pitches: number;
-    Pitches_completed: number | null;
+    Pitches_completed: number;
     Sector: string;
+    Region:string;
     Country: string;
-    Buddy: string | null;
+    Buddy: string;
     Year: number;
     Month: string;
 }

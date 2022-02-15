@@ -24,7 +24,8 @@ const StatsPlots = (props:StatsProps) => {
     }
     return(
         <div>
-            <PieChart width={730} height={250}>
+            <PieChart className="border" width={200} height={250}>
+                {/*FIX:routes er undefined hvis det ikke bliver fetchet inden det sendes videre */}
                 <Pie data={countBy(props.routes)} dataKey="number" nameKey="grade" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" label />
             </PieChart>
         </div>
