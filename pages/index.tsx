@@ -24,8 +24,8 @@ const Home: NextPage = () => {
         </p>
 
         <div className="flex justify-center">
-        <FrontPageCard headline="Add ascent" desc="Update with your latest ascends" link="/add"></FrontPageCard>
-        <FrontPageCard headline="Statistics" desc="View all your statistics" link="/statistics"></FrontPageCard>
+        <FrontPageCard headline="Add ascent" desc="Update with your latest ascends" link="/add" img="https://www.climbing.com/wp-content/uploads/2014/04/5250487136_174064c924_o.jpg?width=730"></FrontPageCard>
+        <FrontPageCard headline="Statistics" desc="View all your statistics" link="/statistics" img="https://online.stanford.edu/sites/default/files/styles/figure_default/public/2020-06/Statistics-Graduate-Certificate_2.jpg?itok=Z0eVYZxe"></FrontPageCard>
         </div>
       </main>
 

@@ -6,8 +6,14 @@
   .headline {
     @apply text-center text-6xl;
   }
+  .headline2 {
+    @apply text-center text-3xl;
+  }
   .btn-primary {
     @apply box-border m-3 p-1 border-2 hover:bg-sky-700 rounded
+  }
+  .active {
+    @apply border bg-slate-300
   }
 }
 
@@ -25,8 +31,3 @@ a {
 * {
   box-sizing: border-box;
 }
-/*Appearance of row when hovered over in list of routes table*/
-tr:hover {
-  cursor:pointer;
-  background-color:burlywood;
- }

@@ -22,14 +22,12 @@ const sortRoutes = (data:Route[],sortKey:SortKey,reverse:boolean) => {
 }
 
 const StatsList = (props:ListProps) => {
-    const [routes,setRoutes] = useState(props.routes);
-    const [climber,setClimber] = useState(props.climber);
     const headlines:SortKey[] = ["Name","Grade","Type","Height","Sector","Region","Country","Buddy","Year","Month","Pitches","Pitches_completed"]
     const [sortKey,setSortKey] = useState<SortKey>("Name");
     const [sortOrder,setSortOrder] = useState<SortOrder>("asc");
 
-    const sortedData = useCallback(() => sortRoutes(routes,sortKey,sortOrder === "desc") //Reverse if sortOrder is descending
-    ,[routes,sortKey,sortOrder])
+    const sortedData = useCallback(() => sortRoutes(props.routes,sortKey,sortOrder === "desc") //Reverse if sortOrder is descending
+    ,[props.routes,sortKey,sortOrder])
 
     const changeSorting = (sortKey:SortKey) => {
         setSortKey(sortKey);
@@ -37,7 +35,7 @@ const StatsList = (props:ListProps) => {
     }
     return(
     <table>
-      <caption>{climber}'s Sends</caption>
+      <caption>{props.climber}'s Sends</caption>
       <thead>
         <tr>
         {headlines.map((hd) => <th className="text-left m-2 pr-4">{hd}<SortingButton columnHeader={hd} sortKey={sortKey} sortOrder ={sortOrder} onClick={() => changeSorting(hd)}/></th>)}

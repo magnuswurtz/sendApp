@@ -4,7 +4,7 @@ import AddForm from '../components/AddForm'
 
 const Add:NextPage = () => {
     return (
-    <div className='items-center justify-center'>
+    <div className='flex flex-col items-center justify-center'>
         <h1 className='headline'>Add page</h1>
         <AddForm></AddForm>
         <Button text="Go Back" link="/"></Button>
